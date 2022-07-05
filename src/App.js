@@ -1,6 +1,7 @@
 import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
+import { Component } from 'react';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -16,12 +17,32 @@ const AppContainer = styled.div`
   );
 `;
 
-function App() {
-  return (
-    <AppContainer>
-      <AccountBox />
-    </AppContainer>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: ""};
+  }
+
+  callAPI() {
+    fetch("http://localhost:9000/testAPI")
+      .then(res => res.text())
+      .then( res => this.setState({ apiResponse: res}))
+      .catch(err => err);
+  }
+
+  componentDidMount() {
+    this.callAPI();
+  }
+
+  render() {
+    return(
+      <AppContainer>
+        <AccountBox />
+        <p>{this.state.apiResponse}</p>
+      </AppContainer>
+    )
+  }
 }
+
 
 export default App;
