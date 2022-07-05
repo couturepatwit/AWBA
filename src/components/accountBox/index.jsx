@@ -4,6 +4,8 @@ import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
+import { QRCodeSVG } from "qrcode.react";
+import { LoggedInForm } from "./loggedInForm";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -93,7 +95,12 @@ export function AccountBox(props) {
     }, 400);
   };
 
-  const contextValue = { switchToSignup, switchToSignin };
+  const switchToLoggedIn = () => {
+    setTimeout(() => {
+      setActive("loggedin");
+    }, 400);
+  };
+  const contextValue = { switchToSignup, switchToSignin, switchToLoggedIn };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -116,10 +123,17 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue</SmallText>
             </HeaderContainer>
           )}
+          {active === "loggedin" && (
+            <HeaderContainer>
+              <HeaderText>Welcome</HeaderText>
+              <HeaderText>Back</HeaderText>
+            </HeaderContainer>
+          )}
         </TopContainer>
         <InnerContainer>
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignupForm />}
+          {active === "loggedin" && <LoggedInForm />}
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>
