@@ -16,9 +16,10 @@ export function LoginForm(props) {
 
   return (
     <BoxContainer>
-      <FormContainer>
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
+      <FormContainer className="contact_form_class">
+        <Input type="text" id = "name" name = "name"  placeholder="Full Name" />
+        <Input type="text" id = "email" name = "email"  placeholder="Email" />
+        <Input type="text" id = "password" name = "password"  placeholder="Password" />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <Marginer direction="vertical" margin="1.6em" />

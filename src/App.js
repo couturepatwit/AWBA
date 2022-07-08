@@ -2,6 +2,7 @@ import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 import { Component } from 'react';
+import * as emailjs from "emailjs-com"
 
 const AppContainer = styled.div`
   width: 100%;
@@ -20,9 +21,10 @@ const AppContainer = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: ""};
+    this.state = { 
+      apiResponse: "",
+    };
   }
-
   callAPI() {
     fetch("http://localhost:9000/testAPI")
       .then(res => res.text())
