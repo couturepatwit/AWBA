@@ -2,7 +2,8 @@ import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 import { Component } from 'react';
-import * as emailjs from "emailjs-com"
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import MyForm from './MyForm';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -40,7 +41,6 @@ class App extends Component {
     return(
       <AppContainer>
         <AccountBox />
-        <p>{this.state.apiResponse}</p>
       </AppContainer>
     )
   }

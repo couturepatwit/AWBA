@@ -15,8 +15,8 @@ export function LoginForm(props) {
   const { switchToLoggedIn } = useContext(AccountContext);
 
   return (
-    <BoxContainer>
-      <FormContainer className="contact_form_class">
+    <BoxContainer className="sign_in">
+      <FormContainer>
         <Input type="text" id = "name" name = "name"  placeholder="Full Name" />
         <Input type="text" id = "email" name = "email"  placeholder="Email" />
         <Input type="text" id = "password" name = "password"  placeholder="Password" />
@@ -34,3 +34,5 @@ export function LoginForm(props) {
     </BoxContainer>
   );
 }
+
+

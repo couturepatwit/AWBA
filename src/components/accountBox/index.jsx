@@ -6,6 +6,9 @@ import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 import { QRCodeSVG } from "qrcode.react";
 import { LoggedInForm } from "./loggedInForm";
+import MyForm from "../../MyForm";
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+ 
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -131,7 +134,7 @@ export function AccountBox(props) {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
+          {active === "signin" && <MyForm />}
           {active === "signup" && <SignupForm />}
           {active === "loggedin" && <LoggedInForm />}
         </InnerContainer>
