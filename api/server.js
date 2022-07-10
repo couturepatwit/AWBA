@@ -11,10 +11,10 @@ app.use(bodyParser.json());
   
 //create database connection
 const conn = mysql.createConnection({
-  host: 'user ',
+  host: '172.16.2.5 ',
   user: 'user',
   password: 'root',
-  database: 'my_db'
+  database: 'userInfo'
 });
  
 //connect to database
@@ -30,7 +30,7 @@ app.post('/store-data',(req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password};
-  let sql = "INSERT INTO users SET ?";
+  let sql = "INSERT INTO userInfo (FullName, Email, Password) VALUES ('", name, "', '", email, "', '", password "');";
   let query = conn.query(sql, data,(err, results) => {
     if(err) throw err;
     res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
