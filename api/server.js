@@ -30,11 +30,11 @@ app.post('/register',(req, res) => {
   const email = req.body.email
   const password = req.body.password
   
-  let sql = "INSERT INTO users SET ?";
-  let query = conn.query(sql, data,(err, results) => {
-    if(err) throw err;
-    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-  });
+  conn.query("INSERT INTO users (name, email, password) VALUES (?,?)",
+  [name, password],
+  (err, result) => {
+    console.log(err);
+  })
 });
  
 app.listen(3000, () => {
