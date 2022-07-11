@@ -1,13 +1,13 @@
 const express = require("express");
-const bodyParser = require('body-parser');
 const cors = require("cors");
-const mysql = require('mysql')
+const mysql = require('mysql');
+const email = require("@sendgrid/mail")
  
 const app = express();
  
 app.use(cors());
 // parse application/json
-app.use(bodyParser.json());
+app.use(express.json());
   
 //create database connection
 const conn = mysql.createConnection({
@@ -25,11 +25,11 @@ conn.connect((err) =>{
  
  
 //add new user
-app.post('/store-data',(req, res) => {
-  let data = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password};
+app.post('/register',(req, res) => {
+  const name = req.body.name
+  const email = req.body.email
+  const password = req.body.password
+  
   let sql = "INSERT INTO users SET ?";
   let query = conn.query(sql, data,(err, results) => {
     if(err) throw err;

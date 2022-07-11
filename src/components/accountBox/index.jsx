@@ -134,7 +134,7 @@ export function AccountBox(props) {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <MyForm />}
+          {active === "signin" && <LoginForm />}
           {active === "signup" && <SignupForm />}
           {active === "loggedin" && <LoggedInForm />}
         </InnerContainer>
