@@ -7,7 +7,6 @@ import { SignupForm } from "./signupForm";
 import { QRCodeSVG } from "qrcode.react";
 import { LoggedInForm } from "./loggedInForm";
 import MyForm from "../../MyForm";
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
  
 
 const BoxContainer = styled.div`
