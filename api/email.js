@@ -1,7 +1,7 @@
 require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 const QRCodeSVG = require('qrcode.react');;
-sgMail.setApiKey();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const msg = {
   to: 'paulcouture33@gmail.com',
   from: 'awbaseniorproject@gmail.com', 
