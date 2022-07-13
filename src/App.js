@@ -2,7 +2,6 @@ import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 import { Component, useState } from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import MyForm from './MyForm';
 
 const AppContainer = styled.div`
