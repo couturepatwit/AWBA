@@ -11,10 +11,11 @@ app.use(express.json());
   
 //create database connection
 const conn = mysql.createConnection({
-  host: '172.16.2.5 ',
-  user: 'user',
-  password: 'root',
-  database: 'userInfo'
+  host: '172.16.2.5',
+  user: 'root',
+  password: 'Password123!',
+  database: 'userInfo',
+  port: 3306
 });
  
 //connect to database
@@ -30,13 +31,13 @@ app.post('/register',(req, res) => {
   const email = req.body.email
   const password = req.body.password
   
-  conn.query("INSERT INTO users (name, email, password) VALUES (?,?,?)",
+  conn.query("INSERT INTO userInfo (FullName, Email, Password) VALUES (?,?,?)",
   [name, email, password],
   (err, result) => {
     console.log(err);
   })
 });
  
-app.listen(3000, () => {
-  console.log("Server running successfully on 3000");
+app.listen(3001, () => {
+  console.log("Server running successfully on 3001");
 });
