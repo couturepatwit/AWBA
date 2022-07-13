@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require('mysql');
 const email = require("@sendgrid/mail")
+require('dotenv').config();
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
  
 const app = express();
  
@@ -36,6 +39,23 @@ app.post('/register',(req, res) => {
   (err, result) => {
     console.log(err);
   })
+
+  const msg = {
+    to: 'paulcouture33@gmail.com',
+    from: 'awbaseniorproject@gmail.com', 
+    subject: 'Test Email',
+    text: 'QR Code below',
+    html: '<QRCodeSVG value = "https://reactjs.org" />',
+  };
+  sgMail
+    .send(msg)
+    .then(() => {}, error => {
+      console.error(error);
+  
+      if (error.response) {
+        console.error(error.response.body)
+      }
+    });
 });
  
 app.listen(3001, () => {

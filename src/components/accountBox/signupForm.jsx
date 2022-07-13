@@ -11,8 +11,6 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
@@ -24,24 +22,8 @@ export function SignupForm(props) {
 
 
   const register = () => {
-    const msg = {
-      to: 'paulcouture33@gmail.com',
-      from: 'awbaseniorproject@gmail.com', 
-      subject: 'Test Email',
-      text: 'QR Code below',
-    };
 
-    sgMail
-    .send(msg)
-     .then(() => {}, error => {
-        console.error(error);
-
-        if (error.response) {
-          console.error(error.response.body)
-       }
-     });
-
-    Axios.post('http://localhost:3000/register', {
+    Axios.post('http://localhost:3001/register', {
       name: nameReg,
       email: emailReg,
       password: passwordReg
