@@ -40,9 +40,29 @@ app.post('/register',(req, res) => {
     console.log(err);
   })
 
+});
+
+app.post('/login',(req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+  
+  conn.query("SELECT * FROM userInfo WHERE username = ? AND password = ?",
+  [email, password],
+  (err, result) => {
+    if(err){
+      res.send({err});
+    } else{
+      if(result.length > 0){
+        res.send(result);
+      } else{
+        res.send({message: "Wrong Email/Password. Try again!"})
+      }
+    }
+  })
+
   const msg = {
     to: 'paulcouture33@gmail.com',
-    from: 'awbaseniorprojectemails@gmail.com', 
+    from: 'awbaseniorprojectemail@gmail.com', 
     subject: 'Test Email',
     text: 'QR Code below',
     html: '<QRCodeSVG value = "https://reactjs.org" />',
