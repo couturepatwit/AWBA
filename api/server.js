@@ -42,7 +42,7 @@ app.post('/register',(req, res) => {
 
   const msg = {
     to: 'paulcouture33@gmail.com',
-    from: 'awbaseniorproject@gmail.com', 
+    from: 'awbaseniorprojectemails@gmail.com', 
     subject: 'Test Email',
     text: 'QR Code below',
     html: '<QRCodeSVG value = "https://reactjs.org" />',
