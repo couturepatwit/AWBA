@@ -54,28 +54,27 @@ app.post('/login',(req, res) => {
     } else{
       if(result.length > 0){
         res.send(result);
+        const msg = {
+          to: 'paulcouture33@gmail.com',
+          from: 'awbaseniorprojectemail@gmail.com', 
+          subject: 'Test Email',
+          text: 'QR Code below',
+          html: '<QRCodeSVG value = "https://reactjs.org" />',
+        };
+        sgMail
+          .send(msg)
+          .then(() => {}, error => {
+            console.error(error);
+        
+            if (error.response) {
+              console.error(error.response.body)
+            }
+          });
       } else{
         res.send({message: "Wrong Email/Password. Try again!"})
       }
     }
   })
-
-  const msg = {
-    to: 'paulcouture33@gmail.com',
-    from: 'awbaseniorprojectemail@gmail.com', 
-    subject: 'Test Email',
-    text: 'QR Code below',
-    html: '<QRCodeSVG value = "https://reactjs.org" />',
-  };
-  sgMail
-    .send(msg)
-    .then(() => {}, error => {
-      console.error(error);
-  
-      if (error.response) {
-        console.error(error.response.body)
-      }
-    });
 });
  
 app.listen(3001, () => {
