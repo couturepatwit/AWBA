@@ -53,7 +53,6 @@ app.post('/login',(req, res) => {
       res.send({err});
     } else{
       if(result.length > 0){
-        res.send(result);
         const msg = {
           to: 'paulcouture33@gmail.com',
           from: 'awbaseniorprojectemail@gmail.com', 
@@ -70,6 +69,7 @@ app.post('/login',(req, res) => {
               console.error(error.response.body)
             }
           });
+        res.send(result);
       } else{
         res.send({message: "Wrong Email/Password. Try again!"})
       }
