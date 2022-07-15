@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
-import { AccountContext } from "./accountContext";
-import { SignupForm } from "./signupForm";
-import { LoggedInForm } from "./loggedInForm";
+import { Marginer } from "../marginer";
+
  
 
 const BoxContainer = styled.div`
@@ -80,62 +78,25 @@ const InnerContainer = styled.div`
 
 
 
-export function AccountBox(props) {
-  const [active, setActive] = useState("signin");
-
-  const switchToSignup = () => {
-    setTimeout(() => {
-      setActive("signup");
-    }, 400);
-  };
-
-  const switchToSignin = () => {
-    setTimeout(() => {
-      setActive("signin");
-    }, 400);
-  };
-
-  const switchToLoggedIn = () => {
-    setTimeout(() => {
-      setActive("loggedin");
-    }, 400);
-  };
-  const contextValue = { switchToSignup, switchToSignin, switchToLoggedIn };
+export function Authenticated(props) {
 
   return (
-    <AccountContext.Provider value={contextValue}>
+
       <BoxContainer>
         <TopContainer>
-          <BackDrop
-            initial={false}
-          />
-          {active === "signin" && (
-            <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back</HeaderText>
-              <SmallText>Please sign-in to continue</SmallText>
-            </HeaderContainer>
-          )}
-          {active === "signup" && (
-            <HeaderContainer>
-              <HeaderText>Create</HeaderText>
-              <HeaderText>Account</HeaderText>
-              <SmallText>Please sign-up to continue</SmallText>
-            </HeaderContainer>
-          )}
-          {active === "loggedin" && (
+          <BackDrop/>
             <HeaderContainer>
               <HeaderText>Welcome</HeaderText>
               <HeaderText>Back</HeaderText>
             </HeaderContainer>
-          )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
-          {active === "signup" && <SignupForm />}
-          {active === "loggedin" && <LoggedInForm />}
+            <BoxContainer>
+                <SmallText>Test</SmallText>
+                <Marginer direction="vertical" margin={20} />
+            </BoxContainer>
         </InnerContainer>
       </BoxContainer>
-    </AccountContext.Provider>
+
   );
 }

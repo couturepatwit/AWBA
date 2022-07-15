@@ -60,7 +60,7 @@ app.post('/login',(req, res) => {
           from: 'awbaseniorprojectemail@gmail.com', 
           subject: 'Test Email',
           text: 'QR Code below',
-          html: <QRCodeSVG value = "https://reactjs.org" />,
+          html: '',
         };
         sgMail
           .send(msg)

@@ -1,8 +1,8 @@
 import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
-import { Component, useState } from 'react';
-import MyForm from './MyForm';
+import { Authenticated } from './components/authenticated';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -23,7 +23,12 @@ function App() {
   return(
     
     <AppContainer>
-      <AccountBox />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element ={<AccountBox/>}/>
+          <Route exact path = '/authenticated' element = {<Authenticated/>} />
+        </Routes>
+      </BrowserRouter>
     </AppContainer>
 
   )
