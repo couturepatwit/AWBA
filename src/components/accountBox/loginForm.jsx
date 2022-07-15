@@ -41,6 +41,7 @@ export function LoginForm(props) {
         <Input type="email" onChange= {(e) => {setemail(e.target.value)}} placeholder="Email" />
         <Input type="password" onChange= {(e) => {setpassword(e.target.value)}} placeholder="Password" />
       </FormContainer>
+      <Marginer direction="vertical" margin=".5em" />
       <MutedLink>{loginStatus}</MutedLink>
       <Marginer direction="vertical" margin={10} />
       <Marginer direction="vertical" margin="1.6em" />

@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const email = require("@sendgrid/mail")
 require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
+const { EmailJSResponseStatus } = require("emailjs-com");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
  
 const app = express();
@@ -42,6 +43,7 @@ app.post('/register',(req, res) => {
 
 });
 
+//login user
 app.post('/login',(req, res) => {
   const email = req.body.email
   const password = req.body.password
@@ -54,11 +56,11 @@ app.post('/login',(req, res) => {
     } else{
       if(result.length > 0){
         const msg = {
-          to: 'paulcouture33@gmail.com',
+          to: email,
           from: 'awbaseniorprojectemail@gmail.com', 
           subject: 'Test Email',
           text: 'QR Code below',
-          html: '<QRCodeSVG value = "https://reactjs.org" />',
+          html: <QRCodeSVG value = "https://reactjs.org" />,
         };
         sgMail
           .send(msg)
