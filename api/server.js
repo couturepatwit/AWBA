@@ -48,7 +48,7 @@ app.post('/login',(req, res) => {
   const email = req.body.email
   const password = req.body.password
   
-  conn.query("SELECT * FROM userInfo WHERE username = ? AND password = ?",
+  conn.query("SELECT * FROM userInfo WHERE Email = ? AND Password = ?",
   [email, password],
   (err, result) => {
     if(err){
