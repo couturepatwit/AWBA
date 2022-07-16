@@ -59,8 +59,8 @@ app.post('/login',(req, res) => {
           to: email,
           from: 'awbaseniorprojectemail@gmail.com', 
           subject: 'Test Email',
-          text: 'QR Code below',
-          html: '',
+          text: 'QR Code attached',
+          html: '<p>QR Code attached</p>',
         };
         sgMail
           .send(msg)
