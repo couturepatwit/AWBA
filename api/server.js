@@ -71,8 +71,7 @@ app.post('/login',(req, res) => {
               console.error(error.response.body)
             }
           });
-        res.send(result);
-        res.send({message: "Please check your email."})
+        res.send(result, {message: "Please check your email."});
       } else{
         res.send({message: "Wrong Email/Password. Try again!"})
       }
