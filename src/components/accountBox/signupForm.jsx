@@ -30,6 +30,8 @@ export function SignupForm(props) {
     } ).then((response) => {
       console.log(response);
     })
+
+    
   }
 
   return (

@@ -26,11 +26,8 @@ export function LoginForm(props) {
       email: email,
       password: password
     } ).then((response) => {
-      if(response.data.message){
         setloginStatus(response.data.message)
-      } else {
-          console.log(response);
-      }
+        console.log(response);  
     })
   }
   

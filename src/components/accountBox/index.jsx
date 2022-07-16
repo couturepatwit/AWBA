@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 import { LoggedInForm } from "./loggedInForm";
+import Axios from 'axios'
+
  
 
 const BoxContainer = styled.div`
