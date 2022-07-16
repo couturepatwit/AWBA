@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Marginer } from "../marginer";
+import { MutedLink, BoldLink } from "../accountBox/common";
 
  
 
@@ -51,7 +52,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 1.24;
   color: #fff;
@@ -86,15 +87,21 @@ export function Authenticated(props) {
         <TopContainer>
           <BackDrop/>
             <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back</HeaderText>
+              <HeaderText>AWBA</HeaderText>
             </HeaderContainer>
         </TopContainer>
         <InnerContainer>
-            <BoxContainer>
-                <SmallText>Test</SmallText>
-                <Marginer direction="vertical" margin={20} />
-            </BoxContainer>
+        
+          <HeaderText>Congratulations!</HeaderText>
+          <SmallText>You are now authenticated</SmallText>
+        <Marginer direction="vertical" margin={20} />
+        <MutedLink href="#">
+          Stuck? Go back to sign in
+            <BoldLink href="#" >
+                here.
+            </BoldLink>
+          <Marginer direction="vertical" margin="1em" />
+        </MutedLink>
         </InnerContainer>
       </BoxContainer>
 

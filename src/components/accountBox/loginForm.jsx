@@ -14,7 +14,6 @@ import { AccountContext } from "./accountContext";
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
-  const { switchToLoggedIn } = useContext(AccountContext);
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
 

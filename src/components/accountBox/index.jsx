@@ -97,12 +97,7 @@ export function AccountBox(props) {
     }, 400);
   };
 
-  const switchToLoggedIn = () => {
-    setTimeout(() => {
-      setActive("loggedin");
-    }, 400);
-  };
-  const contextValue = { switchToSignup, switchToSignin, switchToLoggedIn };
+  const contextValue = { switchToSignup, switchToSignin};
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -113,9 +108,8 @@ export function AccountBox(props) {
           />
           {active === "signin" && (
             <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back</HeaderText>
-              <SmallText>Please sign-in to continue</SmallText>
+              <HeaderText>AWBA</HeaderText>
+              <SmallText>Please sign-in to receive email.</SmallText>
             </HeaderContainer>
           )}
           {active === "signup" && (
@@ -125,17 +119,10 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue</SmallText>
             </HeaderContainer>
           )}
-          {active === "loggedin" && (
-            <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back</HeaderText>
-            </HeaderContainer>
-          )}
         </TopContainer>
         <InnerContainer>
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignupForm />}
-          {active === "loggedin" && <LoggedInForm />}
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>
