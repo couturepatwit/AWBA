@@ -12,7 +12,7 @@ app.use(cors());
 // parse application/json
 app.use(express.json());
 
-attachment = fs.readFileSync('/Codes/qrcode1.png').toString("base64");
+attachment = fs.readFileSync('./Codes/qrcode1.png').toString("base64");
   
 //create database connection
 const conn = mysql.createConnection({
@@ -59,13 +59,13 @@ app.post('/login',(req, res) => {
         const msg = {
           to: email,
           from: 'awbaseniorprojectemail@gmail.com', 
-          subject: 'Test Email',
-          text: 'QR Code attached',
+          subject: 'AWBA Authentication',
+          text: 'Scan the QR Code below to complete account verification.',
           attachments: [
             {
               content: attachment,
               filename: "qrcode1.png",
-              type: "application/png",
+              type: "image/png",
               disposition: "attachment"
             }
           ]
