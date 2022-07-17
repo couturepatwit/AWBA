@@ -64,7 +64,7 @@ app.post('/login',(req, res) => {
           attachments: [
             {
               content: attachment,
-              filename: "qrcode1.pdf",
+              filename: "qrcode1.png",
               type: "application/png",
               disposition: "attachment"
             }
