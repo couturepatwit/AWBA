@@ -1,17 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require('mysql');
-const email = require("@sendgrid/mail")
 require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
-const { EmailJSResponseStatus } = require("emailjs-com");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const fs = require("fs");
  
 const app = express();
  
 app.use(cors());
 // parse application/json
 app.use(express.json());
+
+attachment = fs.readFileSync('/Codes/qrcode1.png').toString("base64");
   
 //create database connection
 const conn = mysql.createConnection({
@@ -60,7 +61,14 @@ app.post('/login',(req, res) => {
           from: 'awbaseniorprojectemail@gmail.com', 
           subject: 'Test Email',
           text: 'QR Code attached',
-          html: '<p>QR Code attached</p>',
+          attachments: [
+            {
+              content: attachment,
+              filename: "qrcode1.pdf",
+              type: "application/png",
+              disposition: "attachment"
+            }
+          ]
         };
         sgMail
           .send(msg)

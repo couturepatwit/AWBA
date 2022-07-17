@@ -8,7 +8,7 @@ import { MutedLink, BoldLink } from "../accountBox/common";
 
 const BoxContainer = styled.div`
   width: 280px;
-  min-height: 550px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -63,7 +63,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
   color: #fff;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 15px;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
@@ -73,7 +73,7 @@ const InnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 1.8em;
+  padding: 0 1.2em;
 `;
 
 
@@ -88,16 +88,18 @@ export function Authenticated(props) {
           <BackDrop/>
             <HeaderContainer>
               <HeaderText>AWBA</HeaderText>
+              <Marginer direction="vertical" margin={15} />
             </HeaderContainer>
         </TopContainer>
         <InnerContainer>
         
           <HeaderText>Congratulations!</HeaderText>
+          <Marginer direction="vertical" margin={15} />
           <SmallText>You are now authenticated</SmallText>
         <Marginer direction="vertical" margin={20} />
         <MutedLink href="#">
           Stuck? Go back to sign in
-            <BoldLink href="#" >
+            <BoldLink href="/#" >
                 here.
             </BoldLink>
           <Marginer direction="vertical" margin="1em" />
